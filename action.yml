@@ -1,0 +1,14 @@
+name: Include files to wiki markdown
+description: Include and update wiki markdown with repository files
+
+inputs:
+    WIKI_TOKEN:
+        description: Secure token to access wiki repo
+        required: true
+
+runs:
+    using: Docker
+    image: Dockerfile
+    args:
+        - ${{ inputs.WIKI_TOKEN }}
+
