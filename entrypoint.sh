@@ -7,16 +7,13 @@ git config --global user.name "${GITHUB_ACTOR}"
 git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
 
 echo "=> Cloning wiki repository ..."
-git clone $wiki_repo "${GITHUB_WORKSPACE}/wiki_repo"
-
-echo "=> Change directory into $(GITHUB_WORKSPACE)"
-cd $(GITHUB_WORKSPACE)
+git clone $wiki_repo wiki_repo
 
 echo "=> Updating markdown files"
 find wiki_repo -type f -name "*.md" -exec md-inc {} \;
 
 echo "=> Change directory into $(GITHUB_WORKSPACE)/wiki_repo"
-cd $(GITHUB_WORKSPACE)/wiki_repo
+cd wiki_repo
 
 git add .
 
